@@ -11,9 +11,9 @@
 #' @examples
 
 
-Condition_test <- function(S, Fn, min.val, max.val){
+Condition_test <- function(S[,1:ncol(S)-1], Fn[,1:ncol(Fn)-1], min.val, max.val){
   
-  condition_number <- function(S, Fd, min.val, max.val){
+  condition_number <- function(S[,1:ncol(S)-1], Fd[,1:ncol(Fd)-1], min.val, max.val){
     Fz <- vectorise(Fd)
     rand <- vector()
     for (i in 1:length(Fz)){
