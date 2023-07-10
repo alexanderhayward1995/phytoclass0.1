@@ -63,7 +63,7 @@ simulated_annealing <- function(S,
     # }
   }
   
-  condition.test <- Condition_test(S, F, min.val, max.val)
+  condition.test <- Condition_test(S[,1:ncol(S)-1], F[,1:ncol(F)-1], min.val, max.val)
   cat(paste0("\nCondition number = ", round(condition.test), 
              "\n\n"))
   
