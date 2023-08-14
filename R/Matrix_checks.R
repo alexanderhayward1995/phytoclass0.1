@@ -17,8 +17,8 @@ Matrix_checks <- function(S, F){
   ba1<- which(ba =="Syn")
   if (ncol(S) > ncol(F)){
     S <- subset(S, select = c(colnames(F)))}
-  S <- apply(S, 2, function(column) all(sapply(column, class) == "character")) # del if needed
-
+  Si <- apply(S, 2, function(column) all(sapply(column, class) == "character")) # del if needed
+  S <- S[, !Si]
   b <- colSums(S)
   g <- mean(S[,ncol(S)])
   ba <- rownames(F)
