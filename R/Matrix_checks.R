@@ -12,13 +12,13 @@
 
 
 Matrix_checks <- function(S, F){
+  Si <- apply(S, 2, function(column) all(sapply(column, class) == "character")) # del if needed
+  S <- S[, !Si]
   F <- subset(F, select = c(colnames(S)))
   ba <- rownames(F)
   ba1<- which(ba =="Syn")
   if (ncol(S) > ncol(F)){
     S <- subset(S, select = c(colnames(F)))}
-  Si <- apply(S, 2, function(column) all(sapply(column, class) == "character")) # del if needed
-  S <- S[, !Si]
   b <- colSums(S)
   g <- mean(S[,ncol(S)])
   ba <- rownames(F)
