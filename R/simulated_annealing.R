@@ -35,6 +35,10 @@ simulated_annealing <- function(S,
   if (is.null(F)) {
     F <- phytoclass::Fm
   }
+
+  char_cols <- sapply(S, is.character)
+  S <- S[, !char_cols]
+
   if (!is.matrix(S)) {
     S <- as.matrix(S)}
 
