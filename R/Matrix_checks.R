@@ -12,8 +12,11 @@
 
 
 Matrix_checks <- function(S, F){
-Si <- sapply(S, is.character)
-S <- S[, !Si]
+Si <- which(sapply(S, is.character))
+if (length(Si) > 0) {
+  # Remove columns with character values
+  S <- S[, -Si]
+}
   F <- subset(F, select = c(colnames(S)))
   ba <- rownames(F)
   ba1<- which(ba =="Syn")
