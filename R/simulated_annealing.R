@@ -42,7 +42,7 @@ simulated_annealing <- function(S,
     S <- as.matrix(F)}
 
   if (do_matrix_checks) {
-    L <- Matrix_checks(S, F)
+    L <- Matrix_checks(as.matrix(S), as.matrix(F))
     S <- as.matrix(L[[1]])
     F <- as.matrix(L[[2]])
   }
