@@ -12,8 +12,8 @@
 
 
 Matrix_checks <- function(S, F){
-  Si <- apply(S, 2, function(column) all(sapply(column, class) == "character")) # del if needed
-  S <- S[, !Si]
+Si <- sapply(S, is.character)
+S <- S[, !Si]
   F <- subset(F, select = c(colnames(S)))
   ba <- rownames(F)
   ba1<- which(ba =="Syn")
