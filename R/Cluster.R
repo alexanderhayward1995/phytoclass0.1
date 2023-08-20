@@ -47,7 +47,7 @@ Cluster <- function(Data,min_cluster_size){
   #Change the minClusterSize argument below to change the number of clusters. 
   #You might want to play around with it if you want ~ 6 clusters. 
   #You could try setting it at 1/6th of the total sample number :)
-  dynamicCut <- cutreeDynamic(mv.hclust, cutHeight = 70, minClusterSize=min_cluster_size, method="hybrid", distM=as.matrix(dist(ndf, method="manhattan")), deepSplit=4, pamStage = TRUE, pamRespectsDendro = TRUE,
+  dynamicCut <- dynamicTreeCut::cutreeDynamic(mv.hclust, cutHeight = 70, minClusterSize=min_cluster_size, method="hybrid", distM=as.matrix(dist(ndf, method="manhattan")), deepSplit=4, pamStage = TRUE, pamRespectsDendro = TRUE,
                               useMedoids = FALSE, maxDistToLabel = NULL,
                               maxPamDist = 50,
                               respectSmallClusters = TRUE,)
@@ -57,7 +57,7 @@ Cluster <- function(Data,min_cluster_size){
   L2 <- length(unique(ev.clust$Clust))
   L <- list()
   for (i in 1:L2){
-    L[[length(L)+1]] <- filter(ev.clust,Clust==i)
+    L[[length(L)+1]] <- dplyr::filter(ev.clust,Clust==i)
   }
   
   L
