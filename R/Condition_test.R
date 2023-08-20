@@ -11,7 +11,13 @@
 #' @examples
 
 
-Condition_test <- function(S, Fn, min.val, max.val){
+Condition_test <- function(S, Fn, min.val=NULL, max.val=NULL){
+  if (is.null(min.val) & is.null(max.val){
+    place <- which(Fn[, 1:ncol(Fn) - 1] > 0)
+    K <- Default_min_max(phytoclass::min_max, Fn[,1:ncol(Fn)-1], place)
+    min.val <- K[[1]]
+    max.val <- K[[2]]
+  }
   
   condition_number <- function(S, Fd, min.val, max.val){
     Fz <- vectorise(Fd)
