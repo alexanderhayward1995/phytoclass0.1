@@ -12,6 +12,10 @@
 #' @examples
 #'
 NNLS_MF <- function(Fn, S, cm){
+    if (is.null(cm)) {
+    cm <- as.vector(rep(1,ncol(S)))
+  }
+
   b <- crossprod(t(Weight_error(Fn, cm)),t(Weight_error(S, cm)))
   C_new2 <-t(RcppML::nnls(crossprod(t(Weight_error(Fn, cm))),
                           b, 
