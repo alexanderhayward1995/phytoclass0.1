@@ -11,7 +11,7 @@
 #'
 #' @examples
 #'
-NNLS_MF <- function(Fn, S, cm){
+NNLS_MF <- function(Fn, S, cm=NULL){
     if (is.null(cm)) {
     cm <- as.vector(rep(1,ncol(S)))
   }
