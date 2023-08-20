@@ -151,5 +151,5 @@ Matrix_checks <- function(S, F){
     F <- F[,-kn]
     S <- S[,-kn]
   }
-  return(list(S,F))
+  return(list(as.matrix(S),as.matrix(F)))
 }
