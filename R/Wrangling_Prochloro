@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-Wrangling <- function(Fl, min.val, max.val){
+Wrangling_Prochloro <- function(Fl, min.val, max.val){
   Fd <- Fl
   Fmin <- as.matrix(Fd)   #### Set up Fmin matrix
   Fmin <- Fmin[,1:(ncol(Fmin)-2)]
