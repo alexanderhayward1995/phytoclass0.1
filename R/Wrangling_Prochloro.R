@@ -1,5 +1,5 @@
 #' Converts data-types and selects data for randomisation in 
-#' the simulated annealing algorithm
+#' the simulated annealing algorithm with prochlorococcus
 #'
 #' @param Fl   xx
 #' @param min.val xx
