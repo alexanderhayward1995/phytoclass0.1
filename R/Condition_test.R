@@ -13,8 +13,8 @@
 
 Condition_test <- function(S, Fn, min.val=NULL, max.val=NULL){
   if (is.null(min.val) & is.null(max.val)){
-    place <- which(F > 0)
-    K <- Default_min_max(phytoclass::min_max, Fn[,1:ncol(Fn)-1], place)
+    place <- which(Fn > 0)
+    K <- Default_min_max(phytoclass::min_max, Fn, place)
     min.val <- K[[1]]
     max.val <- K[[2]]
   }
