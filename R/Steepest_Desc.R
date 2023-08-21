@@ -40,6 +40,6 @@ Steepest_Desc <-  function (F, S, num.loops)
     }
     F.initial <- F.new
   }
-  F.new <- NNLS_MF_Final(as.matrix(F.new), S, S_Chl, cm)
+  F.new <- NNLS_MF_Final(as.matrix(F.new[[1]]), S, S_Chl, cm)
   return(F.new)
 }
