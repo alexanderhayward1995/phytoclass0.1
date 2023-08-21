@@ -13,7 +13,7 @@ Steepest_Desc <-  function (F, S, num.loops)
   L <- Matrix_checks(S, F)
   S <- as.matrix(L[[1]])
   S_Chl <- S[, ncol(S)]
-  cm <- Bounded_weights(S)
+  cm <- Bounded_weights(S,30)
   S <- Normalise_S(S)
   F <- as.matrix(L[[2]])
   place <- which(F > 0)
