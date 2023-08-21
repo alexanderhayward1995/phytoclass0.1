@@ -85,20 +85,20 @@ simulated_annealing <- function(S,
   
   for (k in 1:niter) {
     Temp <- (1 - step)^(k)
-    chlv <- Wrangling(s_c, min.val, max.val)[[4]]
+    chlv <- Wrangling_Prochloro(s_c, min.val, max.val)[[4]]
     new_neighbour <- Random_neighbour2(s_c, Temp, chlv, s_c, 
                                        place, S, cm, min.val, max.val)
     D <- list()
     if (k > niter-20){
       for (i in 1:300){
-        chlv <- Wrangling(s_c, min.val, max.val)[[4]]
+        chlv <- Wrangling_Prochloro(s_c, min.val, max.val)[[4]]
         D[[length(D)+1]] <- Random_neighbour2(s_c, Temp,
                                               chlv, s_c, place, S, cm, min.val, max.val)
       }
     }
     else{
       for (i in 1:120){
-        chlv <- Wrangling(s_c, min.val, max.val)[[4]]
+        chlv <- Wrangling_Prochloro(s_c, min.val, max.val)[[4]]
         D[[length(D)+1]] <- Random_neighbour2(s_c, Temp,
                                               chlv, s_c, place, S, cm, min.val, max.val)
       }
@@ -117,8 +117,8 @@ simulated_annealing <- function(S,
       new_neighbour <- SAALS(new_neighbour[[1]], min.val, 
                              max.val, place, S, cm, num.loops = 2)
     }
-    minF <- Wrangling(new_neighbour[[1]], min.val, max.val)[[1]]
-    maxF <- Wrangling(new_neighbour[[1]], min.val, max.val)[[2]]
+    minF <- Wrangling_Prochloro(new_neighbour[[1]], min.val, max.val)[[1]]
+    maxF <- Wrangling_Prochloro(new_neighbour[[1]], min.val, max.val)[[2]]
     s_n <- new_neighbour[[1]]
     f_n <- new_neighbour[[2]]
     loop <- 1
@@ -128,7 +128,7 @@ simulated_annealing <- function(S,
         if (k > niter-20){
           N <- place[d]
           for (i in 1:300){
-            chlv <- Wrangling(s_n, min.val, max.val)[[4]]
+            chlv <- Wrangling_Prochloro(s_n, min.val, max.val)[[4]]
             D[[length(D)+1]] <- Random_neighbour(s_n, Temp, chlv, s_n, N, place, S, cm, min.val, max.val)
           }
           Dn <- list()
@@ -142,8 +142,8 @@ simulated_annealing <- function(S,
           s_n <- new_neighbour[[1]]
           f_n <- new_neighbour[[2]]
           
-          minF <- Wrangling(new_neighbour[[1]], min.val, max.val)[[1]]
-          maxF <- Wrangling(new_neighbour[[1]], min.val, max.val)[[2]]
+          minF <- Wrangling_Prochloro(new_neighbour[[1]], min.val, max.val)[[1]]
+          maxF <- Wrangling_Prochloro(new_neighbour[[1]], min.val, max.val)[[2]]
           
           d <- which(vectorise(s_n[,1:(ncol(s_n)-1)])<minF | vectorise(s_n[,1:(ncol(s_n)-1)]) > maxF) 
           
@@ -151,7 +151,7 @@ simulated_annealing <- function(S,
       else{
         N <- place[d]
         for (i in 1:120){
-          chlv <- Wrangling(s_n, min.val, max.val)[[4]]
+          chlv <- Wrangling_Prochloro(s_n, min.val, max.val)[[4]]
           D[[length(D)+1]] <- Random_neighbour(s_n, Temp, chlv, s_n, N, place, S, cm, min.val, max.val)
         }
         Dn <- list()
@@ -165,8 +165,8 @@ simulated_annealing <- function(S,
         s_n <- new_neighbour[[1]]
         f_n <- new_neighbour[[2]]
         
-        minF <- Wrangling(new_neighbour[[1]], min.val, max.val)[[1]]
-        maxF <- Wrangling(new_neighbour[[1]], min.val, max.val)[[2]]
+        minF <- Wrangling_Prochloro(new_neighbour[[1]], min.val, max.val)[[1]]
+        maxF <- Wrangling_Prochloro(new_neighbour[[1]], min.val, max.val)[[2]]
         
         d <- which(vectorise(s_n[,1:(ncol(s_n)-1)])<minF | vectorise(s_n[,1:(ncol(s_n)-1)]) > maxF) 
         
