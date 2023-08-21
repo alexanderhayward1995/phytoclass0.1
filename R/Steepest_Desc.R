@@ -10,13 +10,9 @@
 #' @examples
 Steepest_Desc <-  function (F, S, num.loops) 
 {
-  L <- Matrix_checks(S, F)
-  S <- as.matrix(L[[1]])
   S_Chl <- S[, ncol(S)]
   cm <- Bounded_weights(S,30)
-  S <- Normalise_S(S)
-  F <- as.matrix(L[[2]])
-  place <- which(F > 0)
+  place <- which(F[,1:ncol(F)-1] > 0)
   
   loop <- 1
   F.new <- NNLS_MF(F, S, cm)
