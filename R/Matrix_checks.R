@@ -40,10 +40,10 @@ Matrix_checks <- function(S, F){
   l <- n/sum(n)
   fn <- g/b
   p <- which(l < 0.01  & fn[1:length(fn) - 1] <= 0.5)
-  if (length(p) >0) {
-    F <- F[,-p]
-    S <- S[,-p]
-  }
+  #if (length(p) >0) {
+  #  F <- F[,-p]
+  #  S <- S[,-p]
+  #}
   d <- colnames(S)
   d1<- which(d =="Chl.b")
   b <- rownames(F)
