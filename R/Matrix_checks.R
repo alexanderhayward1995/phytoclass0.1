@@ -25,10 +25,10 @@ Matrix_checks <- function(S, F){
   c <- which(b ==0)
   g <- colSums(S != 0)
   l <- which(g/b <=.2)
-  if(length(l) > 0){
-    S <- S[,-l]
-    F <- F[,-l] 
-  }
+  #if(length(l) > 0){
+  #  S <- S[,-l]
+  #  F <- F[,-l] 
+  #}
   k <- rowSums(F)
   kn <- which(k == 1)
   if (length(kn) >0) {
