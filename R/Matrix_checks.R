@@ -12,7 +12,6 @@
 
 
 Matrix_checks <- function(S, F){
-  F <- subset(F, select = c(colnames(S)))
   ba <- rownames(F)
   ba1<- which(ba =="Syn")
   if (ncol(S) > ncol(F)){
