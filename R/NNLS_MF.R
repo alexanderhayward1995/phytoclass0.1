@@ -15,7 +15,7 @@ NNLS_MF <- function(Fn, S, weight_bound=NULL){
     if (is.null(weight_bound)) {
     cm <- as.vector(rep(1,ncol(S)))
   }
-    else{cm <- Bounded_weights(S,30)
+    else{cm <- Bounded_weights(S,weight_bound)
 }
 
   b <- crossprod(t(Weight_error(Fn, cm)),t(Weight_error(S, cm)))
