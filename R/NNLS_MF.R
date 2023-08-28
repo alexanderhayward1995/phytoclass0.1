@@ -24,8 +24,8 @@ NNLS_MF <- function(Fn, S, cm=NULL){
   Cn.s2 <- rowSums(C_new2)
   Cn2 <- C_new2/Cn.s2 #Row sums to one
   Cn2 <- as.matrix(Cn2)
-  colnames(Cn2) <- rownames(F)
+  colnames(Cn2) <- rownames(Fn)
   error <- Metrics::rmse((S),C_new2%*%(Fn))
-  return(list(Fn, error, Cn2))
+  return(list("F matrix " = Fn, "RMSE" = error,"C matrix" = Cn2))
 }
 
